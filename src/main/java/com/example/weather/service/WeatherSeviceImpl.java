@@ -5,6 +5,7 @@ import com.example.weather.repository.WeatherRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class WeatherSeviceImpl implements WeatherService {
@@ -27,5 +28,9 @@ public class WeatherSeviceImpl implements WeatherService {
     @Override
     public void deleteWeather(Long id){
         weatherRepository.deleteById(id);
+    }
+    @Override
+    public List<WeatherEntity> getWeatherByCity(String city){
+        return weatherRepository.findByCity(city);
     }
 }

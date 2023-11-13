@@ -3,6 +3,9 @@ package com.example.weather.model;
 import jakarta.persistence.*;
 import jdk.jfr.Timestamp;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @Table(name = "weather")
 @Entity
 public class WeatherEntity {
@@ -19,16 +22,16 @@ public class WeatherEntity {
     private double temperature;
 
     @Column(name = "date_time")
-    @Timestamp
-    private String date_time;
+
+    private LocalDateTime dateTime;
     public WeatherEntity(){
 
     }
-    public WeatherEntity(int id, String city, double temperature, String date_time) {
+    public WeatherEntity(int id, String city, double temperature, LocalDateTime dateTime) {
         this.id = id;
         this.city = city;
         this.temperature = temperature;
-        this.date_time = date_time;
+        this.dateTime = dateTime;
     }
 
     public int getId() {
@@ -55,7 +58,7 @@ public class WeatherEntity {
         this.temperature = temperature;
     }
 
-    public String getDateTime() { return date_time; }
+    public LocalDateTime getDateTime() { return dateTime; }
 
-    public void setDateTime(String date_time){ this.date_time = date_time; }
+    public void setDateTime(LocalDateTime dateTime){ this.dateTime = dateTime; }
 }
